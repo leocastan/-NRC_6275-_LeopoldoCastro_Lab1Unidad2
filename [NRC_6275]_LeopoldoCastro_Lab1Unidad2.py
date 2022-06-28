@@ -1,12 +1,6 @@
-import glob
-import io
 import os
-import uuid
+from flask import Flask, render_template
 
-import numpy as np
-from flask import Flask, jsonify, make_response, render_template, request
-from matplotlib.backends.backend_agg import FigureCanvasAgg as FigureCanvas
-from matplotlib.figure import Figure
 
 app = Flask(__name__)
 app.secret_key = "s3cr3t"
@@ -28,8 +22,8 @@ def index():
         The index page rendered
     """
     # Creates the input image
-    title = "Create the input image"
-    return render_template("/layouts/[NRC_6275]_LeopoldoCastro_Lab1Unidad2.html", title=title)
+    #title = "Create the input image"
+    return render_template("/layouts/[NRC_6275]_LeopoldoCastro_Lab1Unidad2.html")
 
 
 if __name__ == "__main__":
