@@ -15,14 +15,13 @@ def index():
 
         Parameters
         ----------
-        title : title of the image
+        None
 
         Returns
         -------
         The index page rendered
     """
     # Creates the input image
-    #title = "Create the input image"
     return render_template("/layouts/[NRC_6275]_LeopoldoCastro_Lab1Unidad2.html")
 
 

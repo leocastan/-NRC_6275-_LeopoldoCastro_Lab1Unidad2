@@ -1,5 +1,5 @@
-var canvasWidth = 600;
-var canvasHeight = 400;
+var canvasWidth = 800;
+var canvasHeight = 600;
 //Creación de la variable 
 var player;
 var playerYPosition = 200;
@@ -24,7 +24,11 @@ function startGame() {
     // Asigne a su variable scoreLabel un valor de scoreLabel()
     scoreLabel = new createScoreLabel(10, 30);
 }
+/////////////
 
+
+
+///////////////
 var gameCanvas = {
     canvas: document.createElement("canvas"),
     start: function () {
@@ -32,6 +36,19 @@ var gameCanvas = {
         this.canvas.height = canvasHeight;
         this.context = this.canvas.getContext("2d");
         document.body.insertBefore(this.canvas, document.body.childNodes[0]);
+
+        ////////////////////
+        this.canvas.style.position = 'absolute';
+       // this.canvas.style.top = window.innerHeight / 2 - canvas.height / 2 + 'px';
+       // this.canvas.style.left = window.innerWidth / 2 - canvas.width / 2 + 'px';
+        
+
+       // window.addEventListener('resize', positionCanvas);
+        // call it for the first time
+       // positionCanvas();
+
+        ////////////////
+
     }
 }
 
@@ -42,21 +59,22 @@ function createPlayer(width, height, x) {
     this.y = playerYPosition;
 
     this.draw = function () {
-        
-        var img = document.getElementById("mario")
+
+       /* var img = document.getElementById("mario")
+        img = "https://pngroyale.com/wp-content/uploads/2021/12/mario-PNG-Png-Download-2-768x768.png"
+        var pattern = context.createPattern(img, 'repeat');
+
         ctx = gameCanvas.context;
-        ctx.fillStyle = img;
-        ctx.fillRect(this.x, this.y, this.width, this.height);
-        ctx.fill();
-        
+        ctx.fillStyle = pattern;*/
+        /*ctx.fillRect(this.x, this.y, this.width, this.height);
+        /*ctx.fill();*/
+
 
         
-  
-        /*
         ctx = gameCanvas.context;
         ctx.fillStyle = "green";
         ctx.fillRect(this.x, this.y, this.width, this.height);
-        */
+        
     }
     this.makeFall = function () {
         if (!isJumping) {
