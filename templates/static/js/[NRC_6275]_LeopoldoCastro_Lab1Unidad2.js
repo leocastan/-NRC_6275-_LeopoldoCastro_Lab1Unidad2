@@ -12,11 +12,12 @@ var jumpSpeed = 0;
 
 var block;
 
-// Crear una puntuación de 0 para empezar
+// Create a "0" starting score
 var score = 0;
-// Crear una variable para contener nuestro scoreLabel
+// Create a label to contain the scoreLabel
 var scoreLabel;
 
+//Function to start the game
 function startGame() {
     gameCanvas.start();
     player = new createPlayer(30, 30, 10);
@@ -24,6 +25,8 @@ function startGame() {
     // Asigne a su variable scoreLabel un valor de scoreLabel()
     scoreLabel = new createScoreLabel(10, 30);
 }
+
+
 var gameCanvas = {
     canvas: document.createElement("canvas"),
     start: function () {
@@ -35,6 +38,7 @@ var gameCanvas = {
     }
 }
 
+//Function to create the player block
 function createPlayer(width, height, x) {
     this.width = width;
     this.height = height;
@@ -68,9 +72,11 @@ function createPlayer(width, height, x) {
     }
 }
 
+
+//Function to create block that moves
 function createBlock() {
     var width = randomNumber(10, 50);
-    var height = randomNumber(10, 200);
+    var height = randomNumber(40, 200);
     var speed = randomNumber(2, 6);
 
     this.x = canvasWidth;
@@ -98,6 +104,7 @@ function createBlock() {
     }
 }
 
+//Function to stop the game when the player touches the moving block
 function detectCollision() {
     var playerLeft = player.x
     var playerRight = player.x + player.width;
@@ -115,6 +122,7 @@ function detectCollision() {
     }
 }
 
+//Function to create de score label
 function createScoreLabel(x, y) {
     this.score = 0;
     this.x = x;
@@ -127,6 +135,7 @@ function createScoreLabel(x, y) {
     }
 }
 
+//Function to update the canvas
 function updateCanvas() {
     detectCollision();
 
@@ -145,10 +154,12 @@ function updateCanvas() {
     scoreLabel.draw();
 }
 
+//Function to generate a random number
 function randomNumber(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min)
 }
 
+//Function to reset the jumping block
 function resetJump() {
     jumpSpeed = 0;
     isJumping = false;
